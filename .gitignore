@@ -46,4 +46,7 @@ out/
 *.tmp
 .cache/
 
+# Folders starting with underscore
+_*/
+
 # Made with Bob

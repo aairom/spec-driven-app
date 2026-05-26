@@ -47,6 +47,8 @@ out/
 .cache/
 
 # Folders starting with underscore
+_images/
+_sources/
 _*/
 
 # Made with Bob

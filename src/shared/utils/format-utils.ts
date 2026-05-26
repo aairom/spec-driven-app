@@ -28,6 +28,27 @@ export const formatPercentage = (value: number, decimals: number = 2): string =>
 };
 
 /**
+ * Format a date string to a readable format
+ */
+export const formatDate = (dateString: string, format: 'short' | 'long' = 'short'): string => {
+  const date = new Date(dateString);
+  
+  if (format === 'long') {
+    return new Intl.DateTimeFormat('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }).format(date);
+  }
+  
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(date);
+};
+
+/**
  * Format a large number with K, M, B suffixes
  */
 export const formatCompactNumber = (value: number): string => {

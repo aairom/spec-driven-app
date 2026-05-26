@@ -4,8 +4,20 @@
 
 Spec-Driven Development **flips traditional software development** by making specifications executable and the source of truth, rather than just documentation that gets discarded after coding begins. It's a structured, 8-phase workflow that ensures quality through systematic planning and implementation.
 
+## Important: Understanding Slash Commands
+
+**All `/speckit.*` commands are used in your AI coding agent's chat interface, NOT in the terminal.**
+
+- ✅ Type them in Bob, Claude Code, GitHub Copilot Chat, or your AI agent
+- ❌ Do NOT run them in your terminal/command line
+- ✅ Available after running `specify init` in your project
+- ✅ The AI agent executes them and creates the necessary files
+
+**Example:** When you see `/speckit.constitution`, you type it directly in your AI agent's chat window, followed by your prompt.
+
 ## Table of Contents
 
+- [Understanding Slash Commands](#important-understanding-slash-commands)
 - [The 8-Phase Workflow](#the-8-phase-workflow)
 - [Architecture Diagram](#architecture-diagram)
 - [Step-by-Step Guide](#step-by-step-guide)
@@ -156,14 +168,24 @@ specify check
 
 **Purpose:** Establish governing principles (coding standards, testing, architecture, error handling, naming, performance, decision rules)
 
+**How to Use the Command:**
+
+The `/speckit.constitution` command is a **slash command** that you use in your AI coding agent's chat interface (like Bob, Claude Code, GitHub Copilot Chat, etc.), NOT in your terminal.
+
+**Steps:**
+1. Open your AI coding agent (Bob) in your project directory
+2. Type the slash command `/speckit.constitution` in the chat
+3. Add your prompt describing the principles you want
+4. Press Enter to send
+
 **Command:**
-```bash
+```
 /speckit.constitution
 ```
 
-**Example Prompt:**
+**Example Usage in Bob Chat:**
 ```
-Create principles for a personal finance tracker:
+/speckit.constitution Create principles for a personal finance tracker:
 - TypeScript strict mode, no 'any', functional style preferred
 - File size limit: 200 lines per file
 - Minimum 80% line coverage on business logic
@@ -172,6 +194,13 @@ Create principles for a personal finance tracker:
 - Error handling: explicit error types, no silent failures
 - Performance: sub-100ms response time for all operations
 ```
+
+**Important Notes:**
+- ⚠️ This is a **Bob chat command**, NOT a terminal/CLI command
+- ⚠️ Do NOT run this in your terminal (it won't work)
+- ⚠️ The slash commands are only available AFTER running `specify init`
+- ✅ Type it directly in your AI agent's chat interface
+- ✅ The agent will create the constitution file for you
 
 **Output:** `.specify/memory/constitution.md`
 

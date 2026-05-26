@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { ErrorBoundary } from './components/common';
 import { initializeDatabase } from '@/infrastructure/persistence/database';
+import { seedDefaultData } from '@/infrastructure/persistence/seed-data';
+import { TransactionsPage } from './pages/Transactions';
 
 const App: React.FC = () => {
   const [isInitialized, setIsInitialized] = useState(false);
@@ -10,6 +12,7 @@ const App: React.FC = () => {
     const init = async () => {
       const result = await initializeDatabase();
       if (result.ok) {
+        await seedDefaultData();
         setIsInitialized(true);
       } else {
         setError(result.error.message);
@@ -70,13 +73,8 @@ const App: React.FC = () => {
             <h1 className="text-3xl font-bold text-gray-900">Personal Finance Tracker</h1>
           </div>
         </header>
-        <main className="max-w-7xl mx-auto px-4 py-6">
-          <div className="bg-white rounded-lg shadow p-6">
-            <p className="text-gray-600">Welcome to your Personal Finance Tracker!</p>
-            <p className="mt-2 text-sm text-gray-500">
-              The application is ready. Features will be added incrementally.
-            </p>
-          </div>
+        <main>
+          <TransactionsPage />
         </main>
       </div>
     </ErrorBoundary>
